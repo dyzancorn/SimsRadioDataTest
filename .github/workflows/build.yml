@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   build:
+    name: Generate and push to prod
 
     runs-on: ubuntu-latest
 
