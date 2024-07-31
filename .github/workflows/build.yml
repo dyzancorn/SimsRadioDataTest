@@ -1,0 +1,38 @@
+﻿name: Run csv_json_converter
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    - name: Run csv_json_converter script
+      run: python csv_json_converter.py
+
+    - name: Commit and push generated json
+      # Keep the run green if the commit fails for the lack of changes
+      continue-on-error: True
+      run: |
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git checkout -b prod
+            git add simsRadioData.json
+            git commit -am "Update simsRadioData.json for Commit ${{ github.sha }}"
+            git push origin prod --force
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
