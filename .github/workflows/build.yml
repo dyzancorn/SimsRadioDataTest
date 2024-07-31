@@ -29,7 +29,7 @@ jobs:
       run: |
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git checkout -b prod
+            git switch --orphan prod
             git add simsRadioData.json
             git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git push origin prod --force
