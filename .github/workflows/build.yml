@@ -31,7 +31,7 @@ jobs:
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git checkout -b prod
             git add simsRadioData.json
-            git commit -am "Update simsRadioData.json for Commit ${{ github.sha }}"
+            git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git push origin prod --force
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
