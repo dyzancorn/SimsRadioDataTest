@@ -30,11 +30,13 @@ jobs:
       run: |
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git switch --orphan prod
             git add simsRadioData.json
-            git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
+            git stash
             git fetch
-            git rebase -X ours origin/prod
+            git switch prod
+            git stash pop
+            git add .
+            git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git push origin prod --force
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
