@@ -21,8 +21,11 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Run csv_json_converter script
-      run: python csv_json_converter.py
+    - name: Run csv_json_converter script and move generation to temp
+      run: | 
+            python csv_json_converter.py
+            mkdir temp
+            mv simsRadioData.json temp/
 
     - name: Commit and push generated json
       # Keep the run green if the commit fails for the lack of changes
@@ -30,12 +33,10 @@ jobs:
       run: |
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add simsRadioData.json
-            git stash
             git fetch
-            git checkout prod
-            git stash pop
-            git add .
+            git switch prod
+            mv simsRadioData.json .
+            git add simsRadioData.json
             git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git push origin prod --force
       env:
