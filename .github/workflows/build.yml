@@ -34,7 +34,7 @@ jobs:
             git add simsRadioData.json
             git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git fetch
-            git rebase origin/prod
+            git rebase -X ours origin/prod
             git push origin prod --force
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
