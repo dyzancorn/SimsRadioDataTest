@@ -33,7 +33,7 @@ jobs:
             git add simsRadioData.json
             git stash
             git fetch
-            git switch prod
+            git checkout prod
             git stash pop
             git add .
             git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
