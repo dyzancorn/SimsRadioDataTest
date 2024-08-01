@@ -35,7 +35,7 @@ jobs:
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git fetch
             git switch prod
-            mv simsRadioData.json .
+            mv -f simsRadioData.json .
             git add simsRadioData.json
             git commit -m "Update simsRadioData.json for Commit ${{ github.sha }}"
             git push origin prod --force
