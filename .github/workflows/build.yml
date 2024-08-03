@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ "csv" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    name: Fetch csv and generate json
+    name: Generate json from csv and push to prod
     runs-on: ubuntu-latest
 
     steps:
@@ -24,20 +24,16 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Configure git and fetch csv
+    - name: Configure git and fetch
       run: |
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git fetch
-            git switch csv
-            mkdir temp
-            mv "Sims Radio Music.csv" "temp/Sims Radio Music.csv"
 
     - name: Run csv_json_converter script and move generation to temp
       run: | 
-            git checkout main
-            mv "temp/Sims Radio Music.csv" "Sims Radio Music.csv"
             python csv_json_converter.py
+            mkdir temp
             mv simsRadioData.json temp/
 
     - name: Commit generated json to prod and push
