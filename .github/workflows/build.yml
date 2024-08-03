@@ -30,12 +30,14 @@ jobs:
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git fetch
             git switch csv
+            mkdir temp
+            mv "Sims Radio Music.csv" "temp/Sims Radio Music.csv"
 
     - name: Run csv_json_converter script and move generation to temp
       run: | 
             git checkout main
+            mv "temp/Sims Radio Music.csv" "Sims Radio Music.csv"
             python csv_json_converter.py
-            mkdir temp
             mv simsRadioData.json temp/
 
     - name: Commit generated json to prod and push
