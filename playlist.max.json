@@ -1262,7 +1262,7 @@
     ]
   },
   {
-    "name": "Spooky Playlist",
+    "name": "🎃 Spooky Playlist",
     "description": "A spooky Sims playlist for Halloween!",
     "tracks": [
       "The Sims 3/Spooky/Abject Terror",
@@ -1270,6 +1270,7 @@
       "The Sims 4/Spooky/Bevelsnork",
       "The Sims 4/Spooky/Brezzy Gumbie",
       "The Sims 3/Dark Wave/Can You Hear Me",
+      "The Sims 4/Spooky/CAPS LOCK",
       "The Sims 4/Spooky/Carry On",
       "The Sims 4/Spooky/Cold Blood",
       "The Sims 3/Spooky/Cold Sweat",
@@ -1279,6 +1280,8 @@
       "The Sims 3/Spooky/Fatal Delusions",
       "The Sims 4/Spooky/Floating",
       "The Sims 4/Spooky/Freak (feat. REI AMI)",
+      "The Sims 4/Spooky/Ghosts",
+      "The Sims 4/Spooky/Halloweenie VI: Possess Me",
       "The Sims 4/Spooky/Happy Face",
       "The Sims 4/Spooky/Hit and Run",
       "The Sims 3/Spooky/House of Horror",
@@ -1304,7 +1307,8 @@
       "The Sims 4/Spooky/Vwamplo",
       "The Sims 4/Spooky/White Elephants Boom",
       "The Sims 3/Dark Wave/Wild Heart",
-      "The Sims 3/Dark Wave/Yr Face"
+      "The Sims 3/Dark Wave/Yr Face",
+      "The Sims 4/Spooky/Zumbrie Gumbroe"
     ]
   }
 ]
