@@ -24,7 +24,8 @@ def csv_to_json(csv_file_path: str, json_file_path: str):
                 "albumArtist": row["Game"],
                 "artist": row["Artist"],
                 "title": row["Name"],
-                "year":  row["Release"][0:4]
+                "year":  row["Release"][0:4],
+                "dmcaSafe":  row["DMCA Safe"]
             }
             source = {
                 "client": row["Game"],
