@@ -21,7 +21,8 @@ def csv_to_json(csv_file_path: str, json_file_path: str):
             }
 
             metadata = {
-                "albumArtist": row["Game"],
+                "albumName": row["Album"],
+                "albumCover": row["Square Image"],
                 "artist": row["Artist"],
                 "title": row["Name"],
                 "year":  row["Release"][0:4],
